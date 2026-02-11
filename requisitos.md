@@ -36,5 +36,7 @@ Descrição: Emissão de notificações diferenciadas caso o aluno atinja zonas 
 
 ## Requisitos Não-Funcionais (RNF)
 RNF01 (Segurança): Conformidade estrita com a LGPD (Lei Geral de Proteção de Dados), especialmente por lidar com dados sensíveis de menores e condições de saúde.
+
 RNF02 (Usabilidade): Interface móvel adaptada para uso em ambientes externos (alto contraste para visualização sob sol).
+
 RNF03 (Disponibilidade): O Motor de Avaliação deve ser capaz de operar localmente (Client-side) para garantir o funcionamento offline.
