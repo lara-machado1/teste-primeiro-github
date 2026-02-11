@@ -3,10 +3,13 @@
 ## Requisitos Funcionais (RF)
 RF01 - Cadastro Multifacetado do Aluno
 Descrição: O sistema deve permitir o cadastro completo do aluno, incluindo dados demográficos, escolares, hábitos de atividade física e condições de saúde. Regras:
-    • Campos obrigatórios: Nome, Data de Nascimento, Sexo, Escola, Série, Turma e Dados dos Pais.
-    • Deve incluir campos para variáveis ambientais no momento da avaliação: Temperatura e Horário. Critério de Aceite:
-    • [ ] Validar formato de data e obrigatoriedade dos campos de contato (Email/Telefone).
-    • [ ] Permitir a seleção de modalidades esportivas e frequência semanal.
+  • Campos obrigatórios: Nome, Data de Nascimento, Sexo, Escola, Série, Turma e Dados dos Pais.
+    
+  • Deve incluir campos para variáveis ambientais no momento da avaliação: Temperatura e Horário. Critério de Aceite:
+    
+  • [ ] Validar formato de data e obrigatoriedade dos campos de contato (Email/Telefone).
+  
+  • [ ] Permitir a seleção de modalidades esportivas e frequência semanal.
     
 RF02 - Motor de Avaliação Adaptativa (Seleção de Protocolo)
 Descrição: O sistema deve selecionar automaticamente o protocolo científico (PROESP-Br, PRODOWN ou BAF-DV) com base na deficiência informada. Regras:
