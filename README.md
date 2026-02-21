@@ -1,30 +1,43 @@
-# \## Estrutura HTML5
+# Safe+ | Plataforma de Avaliação Física Inclusiva
 
-# 
+##  Sobre o Projeto
 
-# Projeto estruturado com HTML5 semântico utilizando:
+O Safe+ é uma plataforma desenvolvida como projeto acadêmico da disciplina de Desenvolvimento Web.  
+O objetivo do sistema é auxiliar no cadastro e registro de avaliações físicas de forma organizada e inclusiva.
 
-# 
+##  Objetivo
 
-# \- header
+Criar uma estrutura HTML5 semântica aplicando boas práticas de desenvolvimento web, utilizando elementos estruturais e novos tipos de input do HTML5.
 
-# \- nav
+## 🛠 Tecnologias Utilizadas
 
-# \- main
+- HTML5
+- Git
+- GitHub
+- VS Code
 
-# \- section
+##  Estrutura do Projeto
 
-# \- footer
+O projeto contém:
 
-# \- form
+- `index.html` → Estrutura principal da aplicação
+- `README.md` → Documentação do projeto
+- `requisitos.md` → Requisitos funcionais do sistema
+- `LICENSE` → Licença MIT
 
-# \- inputs HTML5 (date, number, time)
+##  Funcionalidades Implementadas
 
-# 
+- Menu de navegação com `<nav>`
+- Estrutura semântica com `<header>`, `<main>`, `<section>` e `<footer>`
+- Formulário de cadastro com:
+  - Campo de texto
+  - Data
+  - Radio buttons
+  - Número (temperatura)
+  - Horário
+- Validação básica com `required`
 
-# Atividade de Desenvolvimento Web.
+##  Autora
 
-# 
-
-
-
+Lara Isabely Padilha Machado  
+Projeto desenvolvido para fins acadêmicos.
