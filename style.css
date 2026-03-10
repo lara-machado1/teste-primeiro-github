@@ -1,0 +1,21 @@
+body {
+    background-color: lightcyan;
+}
+
+nav {
+    background-color: #405c63;
+    padding: 15px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+
+}
+
