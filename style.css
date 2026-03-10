@@ -1,21 +1,157 @@
+/* --- ESTILOS GERAIS E ACESSIBILIDADE --- */
+:root {
+    --azul: #3498db;
+    --verde: #2ecc71;
+    --laranja: #e67e22;
+    --dark: #405c63;
+}
+
 body {
-    background-color: lightcyan;
+    background-color: #f0fafa;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    color: #333;
 }
 
-nav {
-    background-color: #405c63;
-    padding: 15px;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-nav ul {
-    list-style: none;
+/* --- CARDS DE SELEÇÃO (REQUISITO SAFE+) --- */
+.cards-container {
     display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    margin: 30px 0;
+}
+
+.card {
+    flex: 1;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+    transition: transform 0.3s;
+}
+
+.card:hover { transform: translateY(-5px); }
+.card.azul { background-color: var(--azul); }
+.card.verde { background-color: var(--verde); }
+.card.laranja { background-color: var(--laranja); }
+
+.card button {
+    background: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* --- FORMULÁRIO E MOTOR --- */
+fieldset {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.grid-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-
+.campo { margin-bottom: 15px; }
+label { display: block; font-weight: bold; margin-bottom: 5px; }
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
 }
 
+.btn-principal {
+    background-color: var(--dark);
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* --- MEDIA QUERIES (RESPONSIVIDADE RNF-016) --- */
+@media screen and (max-width: 768px) {
+    .cards-container { flex-direction: column; }
+    
+    header h1 { font-size: 1.8rem; text-align: center; }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+
+    /* Melhora para leitores de tela e toque no celular */
+    input, select { font-size: 16px; height: 48px; }
+}
+
+/* ============================================================
+   2. TABLET (Breakpoint intermediário: 769px até 1024px)
+   Melhora o aproveitamento de espaço em iPads e Tablets.
+   ============================================================ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        padding: 30px;
+    }
+
+    .cards-container {
+        gap: 15px; /* Cards ficam um pouco mais próximos */
+    }
+
+    .grid-form {
+        grid-template-columns: repeat(2, 1fr); /* Força duas colunas organizadas */
+    }
+}
+
+/* ============================================================
+   3. MOBILE (Até 768px)
+   Focado na facilidade de toque e leitura em smartphones.
+   ============================================================ */
+@media screen and (max-width: 768px) {
+    .cards-container { 
+        flex-direction: column; 
+    }
+    
+    .card {
+        padding: 20px; /* Reduz padding para ganhar tela */
+    }
+
+    header h1 { 
+        font-size: 1.8rem; 
+        text-align: center; 
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+        gap: 10px;
+    }
+
+    /* Melhora a usabilidade do formulário no polegar */
+    input, select, textarea, .btn-principal { 
+        font-size: 16px; 
+        min-height: 48px; /* Tamanho recomendado pela WCAG para toque */
+    }
+
+    .grid-form {
+        grid-template-columns: 1fr; /* Tudo vira uma coluna única */
+    }
+}
