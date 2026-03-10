@@ -49,3 +49,6 @@ Imagine que eu tenha 10 parágrafos no meu site, mas quero que apenas 2 deles se
     margin: 20px;
     display: flex;
 }
+## Observação
+
+Este resumo foi feito como atividade de estudo sobre CSS.
