@@ -4,147 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAFE+ | Avaliação Física Inclusiva</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="grain-overlay"></div>
 
-    <header class="navbar">
-        <div class="container nav-content">
-            <div class="logo">SAFE<span>+</span></div>
+    <header class="main-header">
+        <div class="container header-flex">
+            <div class="brand">
+                <span class="logo-dot"></span>
+                <h1>SAFE<span>+</span></h1>
+            </div>
             <nav>
                 <ul>
                     <li><a href="#selecao">Protocolos</a></li>
                     <li><a href="#cadastro">Alunos</a></li>
-                    <li><a href="#avaliacao" class="nav-btn">Nova Avaliação</a></li>
+                    <li><a href="#avaliacao" class="nav-cta">Motor de Avaliação</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main class="container">
-        <section id="selecao" class="section-padding">
-            <div class="section-header">
+        <section id="selecao" class="reveal">
+            <div class="section-intro">
+                <span class="eyebrow">Passo 01</span>
                 <h2>Selecione o Protocolo</h2>
-                <p>Escolha a metodologia adequada para o perfil do aluno.</p>
             </div>
-            
-            <div class="protocol-grid">
-                <div class="p-card">
-                    <div class="icon-box">G</div>
+
+            <div class="cards-wrapper">
+                <div class="glass-card protocol-card" onclick="selecionar('Geral')">
+                    <div class="card-icon blue-glow">G</div>
                     <h3>Geral</h3>
-                    <p>PROESP-BR<br><small>7 a 17 anos</small></p>
-                    <button class="btn-select" onclick="selecionar('Geral')">Iniciar</button>
+                    <p>PROESP-BR <br><span>7-17 anos</span></p>
+                    <button class="btn-card">Selecionar</button>
                 </div>
-                <div class="p-card">
-                    <div class="icon-box turquesa">DV</div>
+
+                <div class="glass-card protocol-card active-turquesa" onclick="selecionar('DV')">
+                    <div class="card-icon turquesa-glow">DV</div>
                     <h3>Def. Visual</h3>
-                    <p>BAF-DV<br><small>7 a 25 anos</small></p>
-                    <button class="btn-select" onclick="selecionar('DV')">Iniciar</button>
+                    <p>BAF-DV <br><span>7-25 anos</span></p>
+                    <button class="btn-card">Selecionar</button>
                 </div>
-                <div class="p-card">
-                    <div class="icon-box marinho">SD</div>
+
+                <div class="glass-card protocol-card" onclick="selecionar('SD')">
+                    <div class="card-icon navy-glow">SD</div>
                     <h3>Síd. de Down</h3>
-                    <p>PRODOWN<br><small>10 a 20 anos</small></p>
-                    <button class="btn-select" onclick="selecionar('SD')">Iniciar</button>
+                    <p>PRODOWN <br><span>10-20 anos</span></p>
+                    <button class="btn-card">Selecionar</button>
                 </div>
             </div>
         </section>
 
-        <section id="cadastro" class="form-container section-padding">
-            <div class="section-header">
+        <section id="cadastro" class="reveal">
+            <div class="section-intro">
+                <span class="eyebrow">Passo 02</span>
                 <h2>Cadastro do Aluno</h2>
             </div>
-            <form id="formCadastro" class="modern-form">
-                <div class="form-section">
-                    <h3>Identificação</h3>
-                    <div class="grid-row">
-                        <div class="input-group">
-                            <label for="nome">Nome Completo</label>
-                            <input type="text" id="nome" placeholder="Digite o nome" required>
-                        </div>
-                        <div class="input-group">
-                            <label for="nasc">Data de Nascimento</label>
-                            <input type="date" id="nasc" required>
-                        </div>
+            
+            <form id="formCadastro" class="glass-panel">
+                <div class="form-grid">
+                    <div class="input-box full">
+                        <label>Nome Completo</label>
+                        <input type="text" id="nome" placeholder="Ex: Lara Machado" required>
+                    </div>
+                    <div class="input-box">
+                        <label>Nascimento</label>
+                        <input type="date" id="nasc" required>
+                    </div>
+                    <div class="input-box">
+                        <label>Classificação BAF-DV</label>
+                        <select id="tipoDV">
+                            <option value="">Não se aplica</option>
+                            <option value="B1">B1 (Cegueira Total)</option>
+                            <option value="B2">B2 (Baixa Visão)</option>
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <label>Tipo de Síndrome de Down</label>
+                        <select id="tipoSD">
+                            <option value="">Não se aplica</option>
+                            <option value="T21">Trissomia 21</option>
+                        </select>
+                    </div>
+                    <div class="input-box full">
+                        <label>Observações Médicas</label>
+                        <textarea id="doencas" placeholder="Descreva condições especiais..."></textarea>
                     </div>
                 </div>
-
-                <div class="form-section">
-                    <h3>Perfil de Inclusão</h3>
-                    <div class="grid-row">
-                        <div class="input-group">
-                            <label>Classificação BAF-DV</label>
-                            <select id="tipoDV">
-                                <option value="">Não se aplica</option>
-                                <option value="B1">B1 (Cegueira Total)</option>
-                                <option value="B2">B2 (Baixa Visão)</option>
-                                <option value="B3">B3 (Baixa Visão)</option>
-                            </select>
-                        </div>
-                        <div class="input-group">
-                            <label>Tipo de Síndrome de Down</label>
-                            <select id="tipoSD">
-                                <option value="">Não se aplica</option>
-                                <option value="T21">Trissomia 21</option>
-                                <option value="TR">Translocação</option>
-                                <option value="MS">Mosaicismo</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="input-group full-width">
-                    <label>Observações Médicas</label>
-                    <textarea id="doencas" rows="3" placeholder="Cardiopatias, problemas respiratórios, etc."></textarea>
-                </div>
-                
-                <button type="submit" class="btn-primary">Salvar Perfil do Aluno</button>
+                <button type="submit" class="btn-submit">Salvar Cadastro</button>
             </form>
         </section>
 
-        <section id="avaliacao" class="section-padding">
-            <div class="section-header">
+        <section id="avaliacao" class="reveal">
+            <div class="section-intro">
+                <span class="eyebrow">Passo 03</span>
                 <h2>Coleta de Medidas</h2>
-                <span class="badge">Protocolo Ativo: Geral</span>
             </div>
-
-            <div class="measure-grid">
-                <div class="measure-card">
-                    <h4>Somáticas</h4>
-                    <div class="input-stack">
-                        <label>Massa Corporal (kg)</label>
-                        <input type="number" step="0.01">
-                        <label>Estatura (cm)</label>
-                        <input type="number" step="0.1">
-                        <label>Cintura (cm)</label>
-                        <input type="number" step="0.1">
-                    </div>
-                </div>
-
-                <div class="measure-card">
-                    <h4>Aptidão Física</h4>
-                    <div class="input-stack">
-                        <label>Flexibilidade (cm)</label>
-                        <input type="number">
-                        <label>Abdominal (rep)</label>
-                        <input type="number">
-                        <label>Velocidade 20m (seg)</label>
-                        <input type="number" step="0.01">
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="main-footer">
-        <div class="container">
-            <p>&copy; 2026 SAFE+ • Sistema de Avaliação Física Inclusiva</p>
-            <p><small>Em conformidade com a LGPD e diretrizes UFRGS</small></p>
-        </div>
-    </footer>
-
-</body>
-</html>
+            
+            <div class="measures-container">
+                <div class="glass-panel sub-panel">
+                    <h3>Medidas Somáticas</h3>
+                    <div class="form-grid">
+                        <div class="input-box"><label>Massa (kg)</label><input type="number" step="0.1"></div>
+                        <div class="input-box"><label>Estatura (cm)</label><input type="number" step="0.1
