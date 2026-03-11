@@ -158,7 +158,33 @@
         <div class="container">
             <p>&copy; 2026 SAFE+ | Desenvolvido sob diretrizes UFRGS e LGPD</p>
         </div>
-    </footer>
 
+        <body>
+
+        <section>
+                <h2>Avaliação Física</h2>
+                
+                    <label for="peso">Peso (kg):</label>
+                    <input type="number" id="peso" placeholder="Ex: 70">
+                
+                <br><br>
+                
+                    <label for="altura">Altura (m):</label>
+                    <input type="number" id="altura" step="0.01" placeholder="Ex: 1.75">
+                
+                <br><br>
+                
+                <button id="botaoDetalhes" onclick="mostrarDetalhes()">
+                Ver resultado da avaliação
+                </button>
+
+                <div id="detalhes" style="display: none;">
+                    <p id="resultado"></p>
+                </div>
+                
+        </section>
+            
+            </footer>
+            <script src="script.js"></script>
 </body>
 </html>

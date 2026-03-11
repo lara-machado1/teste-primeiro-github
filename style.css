@@ -172,3 +172,29 @@ input:focus {
     header h1 { font-size: 2rem; }
     nav ul { flex-wrap: wrap; }
 }
+
+#detalhes {
+    display: none;
+    margin-top: 15px;
+    padding: 15px;
+    background-color: var(--turquesa);
+    border-radius: 10px;
+    border-left: 5px solid var(--turquesa);
+    }
+
+#botaoDetalhes {
+        background-color: var(--turquesa);
+        color: rgb(0, 0, 0);
+        border: none;
+        padding: 12px 20px;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    
+#botaoDetalhes:hover {
+        background-color: var(--turquesa);
+        transform: scale(1.05);
+        
+    }
