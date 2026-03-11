@@ -1,4 +1,3 @@
-Você disse
 <!DOCTYPE html>
 
 <html lang="pt-br">
@@ -9,9 +8,7 @@ Você disse
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>SAFE+ | Avaliação Física Inclusiva</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;800&display=swap" rel="stylesheet">
+    <title>SAFE+ | Sistema de Avaliação Física Inclusiva</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -19,37 +16,31 @@ Você disse
 
 <body>
 
-    <div class="grain-overlay"></div>
 
 
+    <header>
 
-    <header class="main-header">
+        <div class="container">
 
-        <div class="container header-flex">
+            <h1>SAFE+</h1>
 
-            <div class="brand">
-
-                <span class="logo-dot"></span>
-
-                <h1>SAFE<span>+</span></h1>
-
-            </div>
-
-            <nav>
-
-                <ul>
-
-                    <li><a href="#selecao">Protocolos</a></li>
-
-                    <li><a href="#cadastro">Alunos</a></li>
-
-                    <li><a href="#avaliacao" class="nav-cta">Motor de Avaliação</a></li>
-
-                </ul>
-
-            </nav>
+            <p>Plataforma Unificada: PROESP-BR | BAF-DV | PRODOWN</p>
 
         </div>
+
+        <nav>
+
+            <ul>
+
+                <li><a href="#selecao">Seleção de Grupo</a></li>
+
+                <li><a href="#cadastro">Cadastro de Aluno</a></li>
+
+                <li><a href="#avaliacao">Motor de Avaliação</a></li>
+
+            </ul>
+
+        </nav>
 
     </header>
 
@@ -57,57 +48,39 @@ Você disse
 
     <main class="container">
 
-        <section id="selecao" class="reveal">
+        <section id="selecao">
 
-            <div class="section-intro">
+            <h2>1. Selecione o Protocolo</h2>
 
-                <span class="eyebrow">Passo 01</span>
+            <div class="cards-container">
 
-                <h2>Selecione o Protocolo</h2>
-
-            </div>
-
-
-
-            <div class="cards-wrapper">
-
-                <div class="glass-card protocol-card" onclick="selecionar('Geral')">
-
-                    <div class="card-icon blue-glow">G</div>
+                <div class="card azul">
 
                     <h3>Geral</h3>
 
-                    <p>PROESP-BR <br><span>7-17 anos</span></p>
+                    <p>PROESP-BR (7-17 anos)</p>
 
-                    <button class="btn-card">Selecionar</button>
+                    <button onclick="selecionar('Geral')">Selecionar</button>
 
                 </div>
 
-
-
-                <div class="glass-card protocol-card active-turquesa" onclick="selecionar('DV')">
-
-                    <div class="card-icon turquesa-glow">DV</div>
+                <div class="card verde">
 
                     <h3>Def. Visual</h3>
 
-                    <p>BAF-DV <br><span>7-25 anos</span></p>
+                    <p>BAF-DV (7-25 anos)</p>
 
-                    <button class="btn-card">Selecionar</button>
+                    <button onclick="selecionar('DV')">Selecionar</button>
 
                 </div>
 
-
-
-                <div class="glass-card protocol-card" onclick="selecionar('SD')">
-
-                    <div class="card-icon navy-glow">SD</div>
+                <div class="card laranja">
 
                     <h3>Síd. de Down</h3>
 
-                    <p>PRODOWN <br><span>10-20 anos</span></p>
+                    <p>PRODOWN (10-20 anos)</p>
 
-                    <button class="btn-card">Selecionar</button>
+                    <button onclick="selecionar('SD')">Selecionar</button>
 
                 </div>
 
@@ -117,79 +90,91 @@ Você disse
 
 
 
-        <section id="cadastro" class="reveal">
+        <section id="cadastro">
 
-            <div class="section-intro">
+            <h2>2. Cadastro do Aluno</h2>
 
-                <span class="eyebrow">Passo 02</span>
+            <form id="formCadastro">
 
-                <h2>Cadastro do Aluno</h2>
+                <fieldset>
 
-            </div>
+                    <legend>Identificação e Saúde</legend>
 
-           
+                    <div class="grid-form">
 
-            <form id="formCadastro" class="glass-panel">
+                        <div class="campo">
 
-                <div class="form-grid">
+                            <label for="nome">Nome Completo (Obrigatório):</label>
 
-                    <div class="input-box full">
+                            <input type="text" id="nome" required>
 
-                        <label>Nome Completo</label>
+                        </div>
 
-                        <input type="text" id="nome" placeholder="Ex: Lara Machado" required>
+                        <div class="campo">
 
-                    </div>
+                            <label for="nasc">Data de Nascimento:</label>
 
-                    <div class="input-box">
+                            <input type="date" id="nasc" required>
 
-                        <label>Nascimento</label>
-
-                        <input type="date" id="nasc" required>
+                        </div>
 
                     </div>
 
-                    <div class="input-box">
 
-                        <label>Classificação BAF-DV</label>
 
-                        <select id="tipoDV">
+                    <div class="perfil-inclusao">
 
-                            <option value="">Não se aplica</option>
+                        <div class="campo">
 
-                            <option value="B1">B1 (Cegueira Total)</option>
+                            <label>Classificação BAF-DV:</label>
 
-                            <option value="B2">B2 (Baixa Visão)</option>
+                            <select id="tipoDV">
 
-                        </select>
+                                <option value="">Não se aplica</option>
+
+                                <option value="B1">B1 (Cegueira Total)</option>
+
+                                <option value="B2">B2 (Baixa Visão)</option>
+
+                                <option value="B3">B3 (Baixa Visão)</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="campo">
+
+                            <label>Tipo de Síndrome de Down:</label>
+
+                            <select id="tipoSD">
+
+                                <option value="">Não se aplica</option>
+
+                                <option value="T21">Trissomia 21 (95%)</option>
+
+                                <option value="TR">Translocação</option>
+
+                                <option value="MS">Mosaicismo</option>
+
+                            </select>
+
+                        </div>
 
                     </div>
 
-                    <div class="input-box">
 
-                        <label>Tipo de Síndrome de Down</label>
 
-                        <select id="tipoSD">
+                    <div class="campo">
 
-                            <option value="">Não se aplica</option>
+                        <label for="doencas">Doenças Associadas/Observações Médicas:</label>
 
-                            <option value="T21">Trissomia 21</option>
-
-                        </select>
+                        <textarea id="doencas" placeholder="Cardiopatias, problemas respiratórios, etc."></textarea>
 
                     </div>
 
-                    <div class="input-box full">
+                </fieldset>
 
-                        <label>Observações Médicas</label>
-
-                        <textarea id="doencas" placeholder="Descreva condições especiais..."></textarea>
-
-                    </div>
-
-                </div>
-
-                <button type="submit" class="btn-submit">Salvar Cadastro</button>
+                <button type="submit" class="btn-principal">Salvar Cadastro</button>
 
             </form>
 
@@ -197,26 +182,108 @@ Você disse
 
 
 
-        <section id="avaliacao" class="reveal">
+        <section id="avaliacao">
 
-            <div class="section-intro">
+            <h2>3. Coleta de Medidas</h2>
 
-                <span class="eyebrow">Passo 03</span>
+            <article class="motor-testes">
 
-                <h2>Coleta de Medidas</h2>
+                <h3>Medidas Somáticas</h3>
 
-            </div>
+                <div class="grid-form">
 
-           
+                    <div class="campo">
 
-            <div class="measures-container">
+                        <label>Massa Corporal (kg):</label>
 
-                <div class="glass-panel sub-panel">
+                        <input type="number" step="0.01">
 
-                    <h3>Medidas Somáticas</h3>
+                    </div>
 
-                    <div class="form-grid">
+                    <div class="campo">
 
-                        <div class="input-box"><label>Massa (kg)</label><input type="number" step="0.1"></div>
+                        <label>Estatura (cm):</label>
 
-                        <div class="input-box"><label>Estatura (cm)</label><input type="number" step="0.1
+                        <input type="number" step="0.1">
+
+                    </div>
+
+                    <div class="campo">
+
+                        <label>Envergadura (cm) [PRODOWN]:</label>
+
+                        <input type="number" step="0.1">
+
+                    </div>
+
+                    <div class="campo">
+
+                        <label>Perímetro de Cintura (cm):</label>
+
+                        <input type="number" step="0.1">
+
+                    </div>
+
+                </div>
+
+
+
+                <h3>Testes de Aptidão Física</h3>
+
+                <p class="info-protocolo">Protocolo adaptado conforme grupo selecionado.</p>
+
+                <div class="grid-form">
+
+                    <div class="campo">
+
+                        <label>Flexibilidade (cm):</label>
+
+                        <input type="number">
+
+                    </div>
+
+                    <div class="campo">
+
+                        <label>Resistência Abdominal (rep):</label>
+
+                        <input type="number">
+
+                    </div>
+
+                    <div class="campo">
+
+                        <label>Salto Horizontal (cm):</label>
+
+                        <input type="number">
+
+                    </div>
+
+                    <div class="campo">
+
+                        <label>Velocidade 20m (seg):</label>
+
+                        <input type="number" step="0.01">
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </section>
+
+    </main>
+
+
+
+    <footer>
+
+        <p>&copy; 2026 SAFE+ - Desenvolvido sob diretrizes UFRGS e LGPD[cite: 17, 142].</p>
+
+    </footer>
+
+
+
+</body>
+
+</html>
