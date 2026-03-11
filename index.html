@@ -1,62 +1,222 @@
+Você disse
 <!DOCTYPE html>
+
 <html lang="pt-br">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>SAFE+ | Avaliação Física Inclusiva</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;800&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
+
     <div class="grain-overlay"></div>
 
+
+
     <header class="main-header">
+
         <div class="container header-flex">
+
             <div class="brand">
+
                 <span class="logo-dot"></span>
+
                 <h1>SAFE<span>+</span></h1>
+
             </div>
-            <nav class="nav-desktop">
+
+            <nav>
+
                 <ul>
+
                     <li><a href="#selecao">Protocolos</a></li>
+
                     <li><a href="#cadastro">Alunos</a></li>
+
                     <li><a href="#avaliacao" class="nav-cta">Motor de Avaliação</a></li>
+
                 </ul>
+
             </nav>
+
         </div>
+
     </header>
 
+
+
     <main class="container">
+
         <section id="selecao" class="reveal">
+
             <div class="section-intro">
+
                 <span class="eyebrow">Passo 01</span>
+
                 <h2>Selecione o Protocolo</h2>
+
             </div>
+
+
 
             <div class="cards-wrapper">
+
                 <div class="glass-card protocol-card" onclick="selecionar('Geral')">
+
                     <div class="card-icon blue-glow">G</div>
-                    <h3>Escolares Geral</h3>
-                    <p>PROESP-BR <br><span>7 a 17 anos</span></p>
+
+                    <h3>Geral</h3>
+
+                    <p>PROESP-BR <br><span>7-17 anos</span></p>
+
                     <button class="btn-card">Selecionar</button>
+
                 </div>
+
+
 
                 <div class="glass-card protocol-card active-turquesa" onclick="selecionar('DV')">
+
                     <div class="card-icon turquesa-glow">DV</div>
+
                     <h3>Def. Visual</h3>
-                    <p>BAF-DV <br><span>7 a 25 anos</span></p>
+
+                    <p>BAF-DV <br><span>7-25 anos</span></p>
+
                     <button class="btn-card">Selecionar</button>
+
                 </div>
+
+
 
                 <div class="glass-card protocol-card" onclick="selecionar('SD')">
+
                     <div class="card-icon navy-glow">SD</div>
+
                     <h3>Síd. de Down</h3>
-                    <p>PRODOWN <br><span>10 a 20 anos</span></p>
+
+                    <p>PRODOWN <br><span>10-20 anos</span></p>
+
                     <button class="btn-card">Selecionar</button>
+
                 </div>
+
             </div>
+
         </section>
 
+
+
         <section id="cadastro" class="reveal">
+
             <div class="section-intro">
-                <span class="eyebrow
+
+                <span class="eyebrow">Passo 02</span>
+
+                <h2>Cadastro do Aluno</h2>
+
+            </div>
+
+           
+
+            <form id="formCadastro" class="glass-panel">
+
+                <div class="form-grid">
+
+                    <div class="input-box full">
+
+                        <label>Nome Completo</label>
+
+                        <input type="text" id="nome" placeholder="Ex: Lara Machado" required>
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <label>Nascimento</label>
+
+                        <input type="date" id="nasc" required>
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <label>Classificação BAF-DV</label>
+
+                        <select id="tipoDV">
+
+                            <option value="">Não se aplica</option>
+
+                            <option value="B1">B1 (Cegueira Total)</option>
+
+                            <option value="B2">B2 (Baixa Visão)</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <label>Tipo de Síndrome de Down</label>
+
+                        <select id="tipoSD">
+
+                            <option value="">Não se aplica</option>
+
+                            <option value="T21">Trissomia 21</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="input-box full">
+
+                        <label>Observações Médicas</label>
+
+                        <textarea id="doencas" placeholder="Descreva condições especiais..."></textarea>
+
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn-submit">Salvar Cadastro</button>
+
+            </form>
+
+        </section>
+
+
+
+        <section id="avaliacao" class="reveal">
+
+            <div class="section-intro">
+
+                <span class="eyebrow">Passo 03</span>
+
+                <h2>Coleta de Medidas</h2>
+
+            </div>
+
+           
+
+            <div class="measures-container">
+
+                <div class="glass-panel sub-panel">
+
+                    <h3>Medidas Somáticas</h3>
+
+                    <div class="form-grid">
+
+                        <div class="input-box"><label>Massa (kg)</label><input type="number" step="0.1"></div>
+
+                        <div class="input-box"><label>Estatura (cm)</label><input type="number" step="0.1
