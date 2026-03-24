@@ -12,12 +12,12 @@
 
 body {
     background-color: var(--fundo-grafite);
-    /* Efeito de granulação fosca muito sutil */
     background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
     font-family: 'Inter', -apple-system, sans-serif;
     color: var(--texto-principal);
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 
 .container {
@@ -26,10 +26,10 @@ body {
     padding: 20px;
 }
 
-/* --- HEADER E NAV (IGUAL AO PRINT) --- */
+/* --- HEADER --- */
 header {
     padding: 40px 0;
-    text-align: left; /* Alinhamento à esquerda conforme padrão dashboard */
+    text-align: left;
 }
 
 header h1 {
@@ -44,6 +44,7 @@ header p {
     margin: 5px 0 20px 0;
 }
 
+/* --- NAV --- */
 nav ul {
     list-style: none;
     padding: 0;
@@ -66,7 +67,7 @@ nav a:hover {
     color: var(--turquesa);
 }
 
-/* --- CARDS DE SELEÇÃO (ESTILO DASHBOARD) --- */
+/* --- CARDS --- */
 .cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -87,12 +88,12 @@ nav a:hover {
     transform: translateY(-5px);
 }
 
-.card h3 {
+.card h3, .card h1 {
     margin-top: 0;
-    font-size: 1.25rem;
 }
 
-.card button {
+/* BOTÕES */
+button {
     background: transparent;
     border: 1px solid var(--turquesa);
     color: var(--turquesa);
@@ -100,16 +101,16 @@ nav a:hover {
     border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
-    width: 100%;
     margin-top: 15px;
+    transition: 0.3s;
 }
 
-.card button:hover {
+button:hover {
     background: var(--turquesa);
     color: var(--marinho);
 }
 
-/* --- FORMULÁRIOS (FOSCO E LIMPO) --- */
+/* --- FORMULÁRIOS --- */
 fieldset {
     border: 1px solid var(--borda);
     border-radius: 12px;
@@ -166,35 +167,69 @@ input:focus {
     width: 100%;
 }
 
-/* --- RESPONSIVIDADE (MEDIA QUERIES) --- */
+/* --- IMC (CORRIGIDO) --- */
+#detalhes {
+    display: none;
+    margin-top: 15px;
+    padding: 15px;
+    background-color: var(--card-grafite);
+    border-radius: 10px;
+    border-left: 5px solid var(--turquesa);
+}
+
+#botaoDetalhes {
+    background-color: var(--turquesa);
+    color: var(--marinho);
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#botaoDetalhes:hover {
+    background-color: var(--turquesa-hover);
+    transform: scale(1.05);
+}
+
+#resultado {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* --- RESPONSIVIDADE --- */
 @media screen and (max-width: 768px) {
     .grid-form { grid-template-columns: 1fr; }
     header h1 { font-size: 2rem; }
     nav ul { flex-wrap: wrap; }
 }
 
+/* ANIMAÇÃO */
 #detalhes {
     display: none;
-    margin-top: 15px;
-    padding: 15px;
-    background-color: var(--turquesa);
-    border-radius: 10px;
-    border-left: 5px solid var(--turquesa);
-    }
+    animation: fadeIn 0.5s ease;
+}
 
-#botaoDetalhes {
-        background-color: var(--turquesa);
-        color: rgb(0, 0, 0);
-        border: none;
-        padding: 12px 20px;
-        font-size: 16px;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-    
-#botaoDetalhes:hover {
-        background-color: var(--turquesa);
-        transform: scale(1.05);
-        
-    }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* BARRA IMC */
+.barra {
+    width: 100%;
+    height: 10px;
+    background: #2d323a;
+    border-radius: 10px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+#progresso {
+    height: 100%;
+    width: 0%;
+    background: var(--turquesa);
+    transition: width 0.5s ease;
+}

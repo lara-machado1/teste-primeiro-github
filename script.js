@@ -1,30 +1,66 @@
 console.log("O JavaScript está funcionando!");
 
-function mostrarDetalhes() {
+// ===== INTERAÇÃO 1: Mostrar texto =====
+const botao = document.querySelector("#botao");
+const texto = document.querySelector("#texto");
 
-    let area = document.getElementById("detalhes");
-    let botao = document.getElementById("botaoDetalhes");
-
-    let peso = document.getElementById("peso").value;
-    let altura = document.getElementById("altura").value;
-
-    let imc = peso / (altura * altura);
-
-    let resultado = document.getElementById("resultado");
-
-    resultado.innerHTML = "Seu IMC é: <span style='color:rgb(0, 0, 0); font-weight:bold'>" + imc.toFixed(2) + "</span>";
-
-    if(area.style.display === "none") {
-
-        area.style.display = "block";
-        botao.innerText = "Ocultar detalhes da avaliação";
-
-    } else {
-
-        area.style.display = "none";
-        botao.innerText = "Ver detalhes da avaliação";
-
-    }
-
-
+if (botao && texto) {
+    botao.addEventListener("click", function() {
+        if (texto.style.display === "none" || texto.style.display === "") {
+            texto.style.display = "block";
+            botao.innerText = "Mostrar menos";
+        } else {
+            texto.style.display = "none";
+            botao.innerText = "Saiba mais";
+        }
+    });
 }
+
+
+// ===== INTERAÇÃO 2: IMC =====
+const botaoDetalhes = document.getElementById("botaoDetalhes");
+const area = document.getElementById("detalhes");
+const resultado = document.getElementById("resultado");
+
+if (botaoDetalhes && area && resultado) {
+    botaoDetalhes.addEventListener("click", function() {
+
+        let peso = parseFloat(document.getElementById("peso").value);
+        let altura = parseFloat(document.getElementById("altura").value);
+
+        // Validação melhor
+        if (isNaN(peso) || isNaN(altura) || altura === 0) {
+            resultado.innerHTML = "Por favor, preencha peso e altura corretamente.";
+            area.style.display = "block"; // mostra a área mesmo com erro
+            return;
+        }
+
+        let imc = peso / (altura * altura);
+
+        let mensagem = "";
+        let cor = "";
+
+        // Classificação do IMC
+        if (imc < 18.5) {
+            mensagem = "Abaixo do peso";
+            cor = "blue";
+        } else if (imc < 25) {
+            mensagem = "Peso normal";
+            cor = "green";
+        } else if (imc < 30) {
+            mensagem = "Sobrepeso";
+            cor = "orange";
+        } else {
+            mensagem = "Obesidade";
+            cor = "red";
+        }
+
+        // Mostrar resultado
+        resultado.innerHTML = `Seu IMC é: ${imc.toFixed(2)} <br> ${mensagem}`;
+        resultado.style.color = cor;
+
+        // MOSTRAR RESULTADO
+        area.style.display = "block";
+
+    });
+} 
