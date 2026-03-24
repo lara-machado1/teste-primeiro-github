@@ -233,3 +233,28 @@ input:focus {
     background: var(--turquesa);
     transition: width 0.5s ease;
 }
+
+.avaliacao-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card-avaliacao {
+    background: var(--card-grafite);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.card-avaliacao h3 {
+    margin-bottom: 15px;
+    color: var(--turquesa);
+}
+
+@media (max-width: 768px) {
+    .avaliacao-container {
+        grid-template-columns: 1fr;
+    }
+}
