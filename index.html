@@ -4,218 +4,211 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAFE+ | Sistema de Avaliação Física Inclusiva</title>
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- CARD INICIAL -->
-<section class="card">
-    <h1 id="titulo">Plataforma de Avaliação Física Inclusiva</h1>
-
-    <p id="texto" style="display: none;">
-        O Safe+ é uma plataforma desenvolvida como projeto acadêmico da disciplina de Desenvolvimento Web.
-        O objetivo do sistema é auxiliar no cadastro e registro de avaliações físicas de forma organizada e inclusiva.
-    </p>
-
-    <button id="botao">Saiba mais</button>
-</section>
-
-
-<!-- HEADER -->
-<header>
-    <div class="container">
-        <div class="brand">
-            <h1>SAFE+</h1>
-            <p>Plataforma Unificada: PROESP-BR | BAF-DV | PRODOWN</p>
+    <header>
+        <div class="container">
+            <div class="brand">
+                <h1>SAFE+</h1>
+                <p>Plataforma Unificada: PROESP-BR | BAF-DV | PRODOWN</p>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#selecao">Protocolos</a></li>
+                    <li><a href="#cadastro">Alunos</a></li>
+                    <li><a href="#avaliacao">Avaliações</a></li>
+                    <li><a href="#imc">IMC</a></li>
+                    <li><a href="#" class="nav-perfil">Meu Perfil</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <nav>
-            <ul>
-                <li><a href="#selecao">Protocolos</a></li>
-                <li><a href="#cadastro">Alunos</a></li>
-                <li><a href="#avaliacao">Avaliações</a></li>
-                <li><a href="#" class="nav-perfil">Meu Perfil</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+    <main class="container">
 
+        <!-- SEÇÃO 1: SELEÇÃO DE PROTOCOLO -->
+        <section id="selecao" class="secao-wrapper">
+            <div class="secao-header">
+                <h2>1. Selecione o Protocolo</h2>
+                <span class="badge">Obrigatório</span>
+            </div>
+            
+            <div class="cards-container">
+                <article class="card">
+                    <div class="card-icon azul">G</div>
+                    <h3>Geral</h3>
+                    <p>PROESP-BR (7-17 anos)</p>
+                    <button class="btn-card" onclick="selecionar('Geral')">Selecionar</button>
+                </article>
 
-<!-- CONTEÚDO -->
-<main class="container">
+                <article class="card">
+                    <div class="card-icon verde">V</div>
+                    <h3>Def. Visual</h3>
+                    <p>BAF-DV (7-25 anos)</p>
+                    <button class="btn-card" onclick="selecionar('DV')">Selecionar</button>
+                </article>
 
-    <!-- SEÇÃO PROTOCOLOS -->
-    <section id="selecao" class="secao-wrapper">
-        <div class="secao-header">
-            <h2>1. Selecione o Protocolo</h2>
-            <span class="badge">(Obrigatório)</span>
-        </div>
+                <article class="card">
+                    <div class="card-icon laranja">D</div>
+                    <h3>Síd. de Down</h3>
+                    <p>PRODOWN (10-20 anos)</p>
+                    <button class="btn-card" onclick="selecionar('SD')">Selecionar</button>
+                </article>
+            </div>
 
-        <div class="cards-container">
-            <article class="card">
-                <div class="card-icon azul">G</div>
-                <h3>Geral</h3>
-                <p>PROESP-BR (7-17 anos)</p>
-                <button class="btn-card" onclick="selecionar('Geral')">Selecionar</button>
-            </article>
+            <!-- Botão Saiba Mais - Interação 1 do script.js -->
+            <div style="margin-top: 20px;">
+                <button id="botao" class="btn-card" style="width: auto; padding: 10px 20px;">Saiba mais</button>
+                <p id="texto" style="display:none; margin-top: 15px; color: var(--texto-secundario); line-height: 1.7;">
+                    O <strong style="color: var(--turquesa)">SAFE+</strong> unifica três protocolos científicos de avaliação física:
+                    o <strong>PROESP-BR</strong> para alunos em geral, o <strong>BAF-DV</strong> para deficiência visual
+                    e o <strong>PRODOWN</strong> para Síndrome de Down. O sistema seleciona automaticamente
+                    os testes adequados com base no perfil do aluno, garantindo avaliações inclusivas e metodologicamente corretas.
+                </p>
+            </div>
+        </section>
 
-            <article class="card">
-                <div class="card-icon verde">V</div>
-                <h3>Def. Visual</h3>
-                <p>BAF-DV (7-25 anos)</p>
-                <button class="btn-card" onclick="selecionar('DV')">Selecionar</button>
-            </article>
+        <!-- SEÇÃO 2: CADASTRO DO ALUNO -->
+        <section id="cadastro" class="secao-wrapper">
+            <form id="formCadastro">
+                <fieldset>
+                    <legend>2. Identificação e Saúde</legend>
+                    
+                    <div class="grid-form">
+                        <div class="campo full-width">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" id="nome" placeholder="Digite o nome do aluno" required>
+                        </div>
+                        
+                        <div class="campo">
+                            <label for="nasc">Data de Nascimento</label>
+                            <input type="date" id="nasc" required>
+                        </div>
 
-            <article class="card">
-                <div class="card-icon laranja">D</div>
-                <h3>Síd. de Down</h3>
-                <p>PRODOWN (10-20 anos)</p>
-                <button class="btn-card" onclick="selecionar('SD')">Selecionar</button>
-            </article>
-        </div>
-    </section>
+                        <div class="campo">
+                            <label>Classificação BAF-DV</label>
+                            <select id="tipoDV">
+                                <option value="">Não se aplica</option>
+                                <option value="B1">B1 (Cegueira Total)</option>
+                                <option value="B2">B2 (Baixa Visão)</option>
+                                <option value="B3">B3 (Baixa Visão)</option>
+                            </select>
+                        </div>
 
+                        <div class="campo">
+                            <label>Tipo de Síndrome de Down</label>
+                            <select id="tipoSD">
+                                <option value="">Não se aplica</option>
+                                <option value="T21">Trissomia 21 (95%)</option>
+                                <option value="TR">Translocação</option>
+                                <option value="MS">Mosaicismo</option>
+                            </select>
+                        </div>
 
-    <!-- CADASTRO -->
-    <section id="cadastro" class="secao-wrapper">
-        <form id="formCadastro">
-            <fieldset>
-                <legend>2. Identificação e Saúde</legend>
+                        <div class="campo full-width">
+                            <label for="doencas">Doenças Associadas ou Observações</label>
+                            <textarea id="doencas" rows="3" placeholder="Ex: Cardiopatias, problemas respiratórios..."></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn-principal">Salvar Cadastro Aluno</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- SEÇÃO 3: COLETA DE MEDIDAS -->
+        <section id="avaliacao" class="secao-wrapper">
+            <div class="fieldset-simulado">
+                <legend>3. Coleta de Medidas e Aptidão</legend>
+                
+                <div class="grid-form">
+                    <div class="campo">
+                        <label>Massa Corporal (kg)</label>
+                        <input type="number" step="0.01" placeholder="00.00">
+                    </div>
+                    <div class="campo">
+                        <label>Estatura (cm)</label>
+                        <input type="number" step="0.1" placeholder="000.0">
+                    </div>
+                    <div class="campo">
+                        <label>Envergadura (cm)</label>
+                        <input type="number" step="0.1" placeholder="000.0">
+                    </div>
+                    <div class="campo">
+                        <label>Cintura (cm)</label>
+                        <input type="number" step="0.1" placeholder="00.0">
+                    </div>
+                </div>
+
+                <div class="separador"></div>
 
                 <div class="grid-form">
-                    <div class="campo full-width">
-                        <label for="nome">Nome Completo</label>
-                        <input type="text" id="nome" placeholder="Digite o nome do aluno" required>
-                    </div>
-
                     <div class="campo">
-                        <label for="nasc">Data de Nascimento</label>
-                        <input type="date" id="nasc" required>
+                        <label>Flexibilidade (cm)</label>
+                        <input type="number">
                     </div>
-
                     <div class="campo">
-                        <label>Classificação BAF-DV</label>
-                        <select id="tipoDV">
-                            <option value="">Não se aplica</option>
-                            <option value="B1">B1</option>
-                            <option value="B2">B2</option>
-                            <option value="B3">B3</option>
-                        </select>
+                        <label>Abdominal (rep)</label>
+                        <input type="number">
                     </div>
-
                     <div class="campo">
-                        <label>Tipo de Síndrome de Down</label>
-                        <select id="tipoSD">
-                            <option value="">Não se aplica</option>
-                            <option value="T21">Trissomia 21</option>
-                            <option value="TR">Translocação</option>
-                            <option value="MS">Mosaicismo</option>
-                        </select>
+                        <label>Salto (cm)</label>
+                        <input type="number">
                     </div>
-
-                    <div class="campo full-width">
-                        <label for="doencas">Doenças Associadas/Observações Médicas</label>
-                        <textarea id="doencas" rows="3"></textarea>
+                    <div class="campo">
+                        <label>Velocidade 20m (s)</label>
+                        <input type="number" step="0.01">
                     </div>
                 </div>
-            </fieldset>
+            </div>
+        </section>
 
-            <button type="submit" class="btn-principal">Salvar Cadastro</button>
-        </form>
-    </section>
-
-
-    <!-- AVALIAÇÃO -->
-  <div class="avaliacao-container">
-
-    <!-- CAIXA 1 -->
-    <div class="card-avaliacao">
-        <h3>Coleta de Medidas</h3>
-
-        <div class="grid-form">
-            <div class="campo">
-                <label>Massa Corporal (kg)</label>
-                <input type="number" placeholder="Ex: 70">
+        <!-- SEÇÃO 4: CALCULADORA DE IMC - Interação 2 do script.js -->
+        <section id="imc" class="secao-wrapper">
+            <div class="secao-header">
+                <h2>4. Calculadora de IMC</h2>
             </div>
 
-            <div class="campo">
-                <label>Estatura (cm)</label>
-                <input type="number" placeholder="Ex: 170">
-            </div>
+            <div class="fieldset-simulado">
+                <legend>Cálculo Rápido de IMC</legend>
 
-            <div class="campo">
-                <label>Envergadura (cm)</label>
-                <input type="number" placeholder="Ex: 165">
-            </div>
+                <div class="grid-form">
+                    <div class="campo">
+                        <label for="peso">Peso (kg)</label>
+                        <input type="number" id="peso" step="0.1" placeholder="Ex: 65.5">
+                    </div>
+                    <div class="campo">
+                        <label for="altura">Altura (m)</label>
+                        <input type="number" id="altura" step="0.01" placeholder="Ex: 1.70">
+                    </div>
+                </div>
 
-            <div class="campo">
-                <label>Cintura (cm)</label>
-                <input type="number" placeholder="Ex: 75">
-            </div>
-        </div>
-    </div>
+                <button id="botaoDetalhes" class="btn-principal" style="margin-top: 20px;">
+                    Calcular IMC
+                </button>
 
-
-    <!-- CAIXA 2 -->
-    <div class="card-avaliacao">
-        <h3>Aptidão Física</h3>
-
-        <div class="grid-form">
-            <div class="campo">
-                <label>Flexibilidade (cm)</label>
-                <input type="number" placeholder="Ex: 25">
-            </div>
-
-            <div class="campo">
-                <label>Resistência Abdominal (rep)</label>
-                <input type="number" placeholder="Ex: 30">
-            </div>
-
-            <div class="campo">
-                <label>Salto Horizontal (cm)</label>
-                <input type="number" placeholder="Ex: 150">
-            </div>
-
-            <div class="campo">
-                <label>Velocidade 20m (s)</label>
-                <input type="number" step="0.01" placeholder="Ex: 4.5">
-            </div>
-        </div>
-    </div>
-
-</div>
-            <h2 style="margin-top: 30px;">Calcular IMC</h2>
-
-            <div class="imc-box">
-               <label for="peso">Peso (kg)</label>
-<input type="number" id="peso" placeholder="Ex: 55">
-
-<label for="altura">Altura (m)</label>
-<input type="number" id="altura" step="0.01" placeholder="Ex: 1.70">
-                <button id="botaoDetalhes">Calcular IMC</button>
-
-                <div id="detalhes" style="display: none;">
-                    <p id="resultado"></p>
+                <div id="detalhes" style="display:none; margin-top: 20px; padding: 20px; background: var(--fundo-grafite); border-radius: 8px; border: 1px solid var(--borda);">
+                    <p id="resultado" style="font-size: 1.2rem; font-weight: 600; margin: 0;"></p>
                 </div>
             </div>
+        </section>
 
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 SAFE+ | Desenvolvido sob diretrizes UFRGS e LGPD</p>
         </div>
-    </section>
+    </footer>
 
-</main>
-
-
-<!-- FOOTER -->
-<footer>
-    <div class="container">
-        <p>&copy; 2026 SAFE+ | Desenvolvido sob diretrizes UFRGS e LGPD</p>
-    </div>
-</footer>
-
-<script src="script.js"></script>
+    <!-- Script conectado ao final do body -->
+    <script src="script.js"></script>
 
 </body>
 </html>
