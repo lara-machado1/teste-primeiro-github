@@ -28,10 +28,9 @@ if (botaoDetalhes && area && resultado) {
         let peso = parseFloat(document.getElementById("peso").value);
         let altura = parseFloat(document.getElementById("altura").value);
 
-        // Validação melhor
         if (isNaN(peso) || isNaN(altura) || altura === 0) {
             resultado.innerHTML = "Por favor, preencha peso e altura corretamente.";
-            area.style.display = "block"; // mostra a área mesmo com erro
+            area.style.display = "block";
             return;
         }
 
@@ -40,7 +39,6 @@ if (botaoDetalhes && area && resultado) {
         let mensagem = "";
         let cor = "";
 
-        // Classificação do IMC
         if (imc < 18.5) {
             mensagem = "Abaixo do peso";
             cor = "blue";
@@ -55,12 +53,15 @@ if (botaoDetalhes && area && resultado) {
             cor = "red";
         }
 
-        // Mostrar resultado
         resultado.innerHTML = `Seu IMC é: ${imc.toFixed(2)} <br> ${mensagem}`;
         resultado.style.color = cor;
-
-        // MOSTRAR RESULTADO
         area.style.display = "block";
-
     });
-} 
+}
+
+
+// ===== INTERAÇÃO 3: Seleção de Protocolo =====
+function selecionar(protocolo) {
+    alert("Protocolo selecionado: " + protocolo);
+    console.log("Protocolo ativo:", protocolo);
+}
