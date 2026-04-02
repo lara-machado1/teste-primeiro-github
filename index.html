@@ -22,6 +22,7 @@
                     <li><a href="#cadastro">Alunos</a></li>
                     <li><a href="#avaliacao">Avaliações</a></li>
                     <li><a href="#imc">IMC</a></li>
+                    <li><a href="#data-caos">Data</a></li>
                     <li><a href="#" class="nav-perfil">Meu Perfil</a></li>
                 </ul>
             </nav>
@@ -169,7 +170,7 @@
             </div>
         </section>
 
-        <!-- SEÇÃO 4: CALCULADORA DE IMC - Interação 2 do script.js -->
+        <!-- SEÇÃO 4: CALCULADORA DE IMC -->
         <section id="imc" class="secao-wrapper">
             <div class="secao-header">
                 <h2>4. Calculadora de IMC</h2>
@@ -199,6 +200,44 @@
             </div>
         </section>
 
+        <!-- SEÇÃO 5: A PIOR INTERFACE DE DATA DO MUNDO -->
+        <section id="data-caos" class="secao-wrapper">
+            <div class="secao-header">
+                <h2>⚠️ Insira sua Data de Nascimento</h2>
+                <span class="badge">Boa sorte...</span>
+            </div>
+
+            <div class="fieldset-simulado">
+                <legend>Missão: Clique no botão para liberar o campo</legend>
+
+                <p style="color: var(--texto-secundario); margin-bottom: 20px;">
+                    Clique no botão abaixo para liberar o campo de data. <br>
+                    <small style="color: red;">* O botão pode não querer cooperar.</small>
+                </p>
+
+                <!-- Botão que foge -->
+                <div id="area-botao" style="position: relative; height: 120px;">
+                    <button id="botaoFugitivo"
+                        style="position: absolute; top: 30px; left: 30px; background: var(--turquesa); color: var(--marinho); border: none; padding: 12px 24px; border-radius: 6px; font-weight: 700; cursor: pointer;">
+                        Clique aqui para liberar a data!
+                    </button>
+                </div>
+
+                <!-- Campo de data que começa bloqueado -->
+                <div id="area-data" style="display:none; margin-top: 20px;">
+                    <p style="color: green; font-weight: 600;">✅ Parabéns! Você conseguiu! Agora insira sua data:</p>
+                    <input type="date" id="dataCaos" style="margin-top: 10px;">
+                    <br>
+                    <button id="btnSalvarData" class="btn-principal" style="margin-top: 15px;">
+                        Salvar Data no Banco
+                    </button>
+                </div>
+
+                <!-- Resultado do salvamento -->
+                <div id="resultadoData" style="margin-top: 15px;"></div>
+            </div>
+        </section>
+
     </main>
 
     <footer>
@@ -207,7 +246,6 @@
         </div>
     </footer>
 
-    <!-- Script conectado ao final do body -->
     <script src="script.js"></script>
     <script src="db.js"></script>
     <script src="controller.js"></script>

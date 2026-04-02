@@ -4,17 +4,16 @@
 document.addEventListener("DOMContentLoaded", async function() {
     await iniciarBanco();
     console.log("Controller pronto!");
-    await listarAlunos(); // já lista os alunos salvos ao abrir a página
+    await listarAlunos();
 });
 
-// Escuta o envio do formulário de cadastro
+// ===== FORMULÁRIO DE CADASTRO =====
 const form = document.getElementById("formCadastro");
 
 if (form) {
     form.addEventListener("submit", async function(event) {
-        event.preventDefault(); // impede o recarregamento da página
+        event.preventDefault();
 
-        // Captura os dados do formulário
         const aluno = {
             nome: document.getElementById("nome").value,
             nascimento: document.getElementById("nasc").value,
@@ -23,21 +22,18 @@ if (form) {
             doencas: document.getElementById("doencas").value,
         };
 
-        // Salva no banco
         await adicionarItem(aluno);
         alert("Aluno salvo com sucesso!");
 
-        // Limpa o formulário e atualiza a lista
         form.reset();
         await listarAlunos();
     });
 }
 
-// Lista os alunos salvos na tela
+// ===== LISTAGEM DE ALUNOS =====
 async function listarAlunos() {
     const alunos = await buscarItens();
     
-    // Procura ou cria a área de listagem no HTML
     let lista = document.getElementById("listaAlunos");
     if (!lista) {
         lista = document.createElement("div");
@@ -46,13 +42,11 @@ async function listarAlunos() {
         document.querySelector("main").appendChild(lista);
     }
 
-    // Se não houver alunos
     if (alunos.length === 0) {
         lista.innerHTML = "<p style='color: var(--texto-secundario)'>Nenhum aluno cadastrado ainda.</p>";
         return;
     }
 
-    // Monta a listagem
     lista.innerHTML = `
         <h3 style="color: var(--turquesa); margin-top: 40px;">Alunos Cadastrados (${alunos.length})</h3>
         ${alunos.map(a => `
@@ -67,4 +61,73 @@ async function listarAlunos() {
             </div>
         `).join("")}
     `;
+}
+
+// ===== A PIOR INTERFACE DE DATA DO MUNDO =====
+const botaoFugitivo = document.getElementById("botaoFugitivo");
+const areaData = document.getElementById("area-data");
+const areaBotao = document.getElementById("area-botao");
+
+let tentativas = 0;
+
+if (botaoFugitivo) {
+
+    // Botão foge quando o mouse passa por cima
+    botaoFugitivo.addEventListener("mouseover", function() {
+        tentativas++;
+
+        const maxX = areaBotao.offsetWidth - botaoFugitivo.offsetWidth - 10;
+        const maxY = areaBotao.offsetHeight - botaoFugitivo.offsetHeight - 10;
+
+        const novoX = Math.floor(Math.random() * maxX);
+        const novoY = Math.floor(Math.random() * maxY);
+
+        botaoFugitivo.style.left = novoX + "px";
+        botaoFugitivo.style.top = novoY + "px";
+
+        botaoFugitivo.innerText = `Clique aqui! (tentativa ${tentativas})`;
+        console.log("O botão fugiu! Tentativas:", tentativas);
+    });
+
+    // Quando clicar, libera o campo de data
+    botaoFugitivo.addEventListener("click", function() {
+        botaoFugitivo.style.display = "none";
+        areaData.style.display = "block";
+        console.log("Usuário conseguiu clicar após", tentativas, "tentativas!");
+    });
+}
+
+// ===== SALVAR DATA NO INDEXEDDB =====
+const btnSalvarData = document.getElementById("btnSalvarData");
+const resultadoData = document.getElementById("resultadoData");
+
+if (btnSalvarData) {
+    btnSalvarData.addEventListener("click", async function() {
+        const data = document.getElementById("dataCaos").value;
+
+        if (!data) {
+            resultadoData.innerHTML = "<p style='color: red;'>Por favor, selecione uma data!</p>";
+            return;
+        }
+
+        const objeto = {
+            tipo: "data-caos",
+            dataNascimento: data,
+            tentativas: tentativas,
+            timestamp: new Date().toLocaleString()
+        };
+
+        await adicionarItem(objeto);
+
+        resultadoData.innerHTML = `
+            <p style="color: green; font-weight: 600;">
+                ✅ Data salva com sucesso!<br>
+                <span style="color: var(--texto-secundario); font-size: 0.9rem;">
+                    Data: ${data} | Tentativas para clicar: ${tentativas}
+                </span>
+            </p>
+        `;
+
+        console.log("Data salva no IndexedDB:", objeto);
+    });
 }
