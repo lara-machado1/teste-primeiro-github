@@ -22,7 +22,6 @@
                     <li><a href="#cadastro">Alunos</a></li>
                     <li><a href="#avaliacao">Avaliações</a></li>
                     <li><a href="#imc">IMC</a></li>
-                    <li><a href="#data-caos">Data</a></li>
                     <li><a href="#" class="nav-perfil">Meu Perfil</a></li>
                 </ul>
             </nav>
@@ -61,7 +60,6 @@
                 </article>
             </div>
 
-            <!-- Botão Saiba Mais - Interação 1 do script.js -->
             <div style="margin-top: 20px;">
                 <button id="botao" class="btn-card" style="width: auto; padding: 10px 20px;">Saiba mais</button>
                 <p id="texto" style="display:none; margin-top: 15px; color: var(--texto-secundario); line-height: 1.7;">
@@ -84,10 +82,28 @@
                             <label for="nome">Nome Completo</label>
                             <input type="text" id="nome" placeholder="Digite o nome do aluno" required>
                         </div>
-                        
-                        <div class="campo">
-                            <label for="nasc">Data de Nascimento</label>
-                            <input type="date" id="nasc" required>
+
+                        <!-- DATA DE NASCIMENTO: A PIOR INTERFACE DO MUNDO -->
+                        <div class="campo full-width">
+                            <label>Data de Nascimento</label>
+                            <p style="color: var(--texto-secundario); font-size: 0.85rem; margin: 5px 0 10px 0;">
+                                ⚠️ Para inserir a data, você precisa primeiro clicar no botão abaixo.
+                                <small style="color: red;">* O botão pode não querer cooperar.</small>
+                            </p>
+
+                            <!-- Botão fugitivo -->
+                            <div id="area-botao" style="position: relative; height: 80px;">
+                                <button type="button" id="botaoFugitivo"
+                                    style="position: absolute; top: 10px; left: 0; background: var(--turquesa); color: var(--marinho); border: none; padding: 10px 20px; border-radius: 6px; font-weight: 700; cursor: pointer;">
+                                    Clique aqui para liberar a data!
+                                </button>
+                            </div>
+
+                            <!-- Campo de data liberado após clicar -->
+                            <div id="area-data" style="display:none; margin-top: 10px;">
+                                <p style="color: green; font-size: 0.85rem; font-weight: 600;">✅ Conseguiu! Agora insira a data:</p>
+                                <input type="date" id="dataCaos" style="margin-top: 5px;">
+                            </div>
                         </div>
 
                         <div class="campo">
@@ -197,44 +213,6 @@
                 <div id="detalhes" style="display:none; margin-top: 20px; padding: 20px; background: var(--fundo-grafite); border-radius: 8px; border: 1px solid var(--borda);">
                     <p id="resultado" style="font-size: 1.2rem; font-weight: 600; margin: 0;"></p>
                 </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO 5: A PIOR INTERFACE DE DATA DO MUNDO -->
-        <section id="data-caos" class="secao-wrapper">
-            <div class="secao-header">
-                <h2>⚠️ Insira sua Data de Nascimento</h2>
-                <span class="badge">Boa sorte...</span>
-            </div>
-
-            <div class="fieldset-simulado">
-                <legend>Missão: Clique no botão para liberar o campo</legend>
-
-                <p style="color: var(--texto-secundario); margin-bottom: 20px;">
-                    Clique no botão abaixo para liberar o campo de data. <br>
-                    <small style="color: red;">* O botão pode não querer cooperar.</small>
-                </p>
-
-                <!-- Botão que foge -->
-                <div id="area-botao" style="position: relative; height: 120px;">
-                    <button id="botaoFugitivo"
-                        style="position: absolute; top: 30px; left: 30px; background: var(--turquesa); color: var(--marinho); border: none; padding: 12px 24px; border-radius: 6px; font-weight: 700; cursor: pointer;">
-                        Clique aqui para liberar a data!
-                    </button>
-                </div>
-
-                <!-- Campo de data que começa bloqueado -->
-                <div id="area-data" style="display:none; margin-top: 20px;">
-                    <p style="color: green; font-weight: 600;">✅ Parabéns! Você conseguiu! Agora insira sua data:</p>
-                    <input type="date" id="dataCaos" style="margin-top: 10px;">
-                    <br>
-                    <button id="btnSalvarData" class="btn-principal" style="margin-top: 15px;">
-                        Salvar Data no Banco
-                    </button>
-                </div>
-
-                <!-- Resultado do salvamento -->
-                <div id="resultadoData" style="margin-top: 15px;"></div>
             </div>
         </section>
 
