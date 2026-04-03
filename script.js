@@ -65,3 +65,40 @@ function selecionar(protocolo) {
     alert("Protocolo selecionado: " + protocolo);
     console.log("Protocolo ativo:", protocolo);
 }
+
+let tamanho = 120;
+
+botaoFugitivo.addEventListener("mouseover", function() {
+    tentativas++;
+
+    //  DIMINUI
+    tamanho -= 8;
+    if (tamanho < 30) tamanho = 30;
+
+    botaoFugitivo.style.width = tamanho + "px";
+
+    //  GIRA
+    botaoFugitivo.style.transform = `rotate(${tentativas * 25}deg)`;
+
+    //  FOGE
+    const maxX = areaBotao.offsetWidth - botaoFugitivo.offsetWidth - 10;
+    const maxY = areaBotao.offsetHeight - botaoFugitivo.offsetHeight - 10;
+
+    const novoX = Math.floor(Math.random() * maxX);
+    const novoY = Math.floor(Math.random() * maxY);
+
+    botaoFugitivo.style.left = novoX + "px";
+    botaoFugitivo.style.top = novoY + "px";
+
+    //  SOME E VOLTA
+    botaoFugitivo.style.opacity = "0";
+
+    setTimeout(() => {
+        botaoFugitivo.style.opacity = "1";
+    }, 300);
+
+    // TEXTO
+    botaoFugitivo.innerText = `Clique aqui! (${tentativas})`;
+
+    console.log("Boa sorte 😈 Tentativas:", tentativas);
+});
