@@ -32,8 +32,11 @@ if (form) {
 
 // ===== LISTAGEM DE ALUNOS =====
 async function listarAlunos() {
-    const alunos = await buscarItens();
-    
+    const todos = await buscarItens();
+
+    // 🔥 FILTRA APENAS ALUNOS (que têm nome)
+    const alunos = todos.filter(a => a.nome);
+
     let lista = document.getElementById("listaAlunos");
     if (!lista) {
         lista = document.createElement("div");
@@ -48,12 +51,26 @@ async function listarAlunos() {
     }
 
     lista.innerHTML = `
-        <h3 style="color: var(--turquesa); margin-top: 40px;">Alunos Cadastrados (${alunos.length})</h3>
+        <h3 style="color: var(--turquesa); margin-top: 40px;">
+            Alunos Cadastrados (${alunos.length})
+        </h3>
+
         ${alunos.map(a => `
             <div style="background: var(--card-grafite); border: 1px solid var(--borda); border-radius: 8px; padding: 15px; margin-top: 10px;">
-                <strong style="color: white">${a.nome}</strong><br>
-                <span style="color: var(--texto-secundario)">Nascimento: ${a.nascimento}</span><br>
-                <span style="color: var(--texto-secundario)">BAF-DV: ${a.tipoDV || "Não se aplica"} | PRODOWN: ${a.tipoSD || "Não se aplica"}</span><br>
+                
+                <strong style="color: white">
+                    ${a.nome || "Sem nome"}
+                </strong><br>
+
+                <span style="color: var(--texto-secundario)">
+                    Nascimento: ${a.nascimento || "Não informado"}
+                </span><br>
+
+                <span style="color: var(--texto-secundario)">
+                    BAF-DV: ${a.tipoDV || "Não se aplica"} | 
+                    PRODOWN: ${a.tipoSD || "Não se aplica"}
+                </span><br>
+
                 <button onclick="deletarItem(${a.id}).then(listarAlunos)" 
                     style="margin-top: 8px; background: transparent; border: 1px solid red; color: red; padding: 5px 10px; border-radius: 4px; cursor: pointer;">
                     Remover

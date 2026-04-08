@@ -1,0 +1,12 @@
+O que já funciona:
+- Página inicial carrega
+- Botão responde ao clique
+
+Problemas:
+- Dados não salvam
+- Layout desorganizado
+
+Plano de ação:
+- Corrigir salvamento de dados
+- Organizar layout com CSS
+- Testar novamente o botão

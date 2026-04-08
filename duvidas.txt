@@ -1,0 +1,3 @@
+1. Não sei se o banco de dados está funcionando corretamente
+2. A página não atualiza após adicionar um item
+3. Dificuldade em entender como integrar o JavaScript com o HTML
