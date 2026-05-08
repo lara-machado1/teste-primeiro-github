@@ -1,0 +1,8 @@
+Dificuldades encontradas durante a refatoração:
+
+* Tivemos dificuldade em configurar corretamente o ambiente PHP e o servidor local.
+* Houve dúvidas sobre como utilizar a Injeção de Dependência no Controller e no Service.
+* Tivemos dificuldade em entender o fluxo entre Controller, Service e Repository.
+* O tratamento de exceções com try-catch inicialmente estava no lugar incorreto.
+* Tivemos problemas com o envio do formulário HTML via método POST.
+* A sanitização dos dados utilizando middleware também gerou dúvidas no começo.
